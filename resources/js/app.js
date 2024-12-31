@@ -1,3 +1,4 @@
 import './bootstrap';
-import 'flowbite';
+import 'flowbite'
 import 'remixicon/fonts/remixicon.css'
+import './dark-mode.js';

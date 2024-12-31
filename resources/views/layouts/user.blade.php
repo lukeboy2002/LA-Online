@@ -21,9 +21,16 @@
     @livewireStyles
 </head>
 <body class="font-sans antialiased">
-<main class="bg-gray-50 dark:bg-gray-900">
-    {{ $slot }}
-</main>
+<div class="antialiased bg-gray-50 dark:bg-gray-900 h-screen">
+    <livewire:navigation-menu-user/>
+
+    <!-- Sidebar -->
+    <x-menu.sidebar/>
+
+    <main class="px-4 md:ml-64 h-auto pt-8">
+        {{ $slot }}
+    </main>
+</div>
 
 @stack('modals')
 
