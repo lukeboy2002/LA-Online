@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -32,5 +35,15 @@ class DatabaseSeeder extends Seeder
             $this->call(RonSeeder::class),
             $this->call(Ruudseeder::class),
         ]];
+
+        $users = User::factory(10)->create();
+        foreach ($users as $user) {
+            $role = Role::select('id')->where('name', 'user')->first();
+            $user->roles()->attach($role);
+            $profile = Profile::create([
+                'user_id' => $user->id,
+            ]);
+        }
+
     }
 }
