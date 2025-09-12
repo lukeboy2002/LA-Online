@@ -10,7 +10,6 @@
             <div class="flex flex-col gap-8">
                 @if (Laravel\Fortify\Features::canUpdateProfileInformation())
                     @livewire('profile.update-profile-information-form')
-                    @livewire('profile.update-profile-bio-form')
                     <x-section-border/>
                 @endif
             </div>
