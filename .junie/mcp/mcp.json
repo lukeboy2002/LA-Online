@@ -1,0 +1,20 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "/Users/antoine/Library/Application Support/Herd/bin/php83",
+            "args": [
+                "/Users/antoine/Herd/la-online/artisan",
+                "boost:mcp"
+            ]
+        },
+        "herd": {
+            "command": "/Users/antoine/Library/Application Support/Herd/bin/php83",
+            "args": [
+                "/Applications/Herd.app/Contents/Resources/herd-mcp.phar"
+            ],
+            "env": {
+                "SITE_PATH": "/Users/antoine/Herd/la-online"
+            }
+        }
+    }
+}
