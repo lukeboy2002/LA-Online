@@ -10,17 +10,40 @@
 @source "../../node_modules/flowbite/**/*.js";
 @source "../../node_modules/flowbite";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
     --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-secondary: 'montserrat';
+
+    --color-body: var(--body);
+    --color-background: var(--background);
+    --color-background-hover: var(--background-hover);
+    --color-background-secondary: var(--background-secondary);
+
+    --color-primary: var(--primary);
+    --color-secondary: var(--secondary);
 }
 
 :root {
+    --body: hsl(220 14.3% 95.9%); /* gray-100 */
+    --background: hsl(0 0% 98%); /* neutral-50 */
+    --background-hover: hsl(0 0% 96.1%); /* neutral-100 */
+    --background-secondary: hsl(220 13% 91%); /*gray-200 */
 
+    --primary: hsl(215 27.9% 16.9%); /* gray-800 */
+    --secondary: hsl(24.6 95% 53.1%); /* orange-500 */
 }
 
 .dark {
+    --body: hsl(220.9 39.3% 11%); /* gray-900 */
+    --background: hsl(215 27.9% 16.9%); /* gray-800 */
+    --background-hover: hsl(216.9 19.1% 26.7%); /* gray-700 */
+    --background-secondary: hsl(224 71.4% 4.1%) /30;
 
+    --primary: hsl(0 0% 98%); /* neutral-50 */
+    --secondary: hsl(20.5 90.2% 48.2%); /* orange-600 */
 }
 
 /*
