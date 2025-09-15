@@ -12,9 +12,9 @@
 {{--    </x-dropdown-link>--}}
 {{--@endif--}}
 
-
-<x-dropdown-link
-        href="{{ route('categories.create') }}">
-    {{ __('Category1') }}
-</x-dropdown-link>
-
+@can('create:category')
+    <x-dropdown-link
+            href="{{ route('categories.create') }}">
+        {{ __('Category') }}
+    </x-dropdown-link>
+@endcan
