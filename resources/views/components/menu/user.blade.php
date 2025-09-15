@@ -11,3 +11,10 @@
 {{--        {{ __('Invite User') }}--}}
 {{--    </x-dropdown-link>--}}
 {{--@endif--}}
+
+@can('create:category')
+    <x-dropdown-link
+            href="{{ route('categories.create') }}">
+        {{ __('Category') }}
+    </x-dropdown-link>
+@endif
