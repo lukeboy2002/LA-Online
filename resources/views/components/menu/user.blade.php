@@ -17,4 +17,4 @@
             href="{{ route('categories.create') }}">
         {{ __('Category1') }}
     </x-dropdown-link>
-@endif
+@endcan
