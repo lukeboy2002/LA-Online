@@ -23,6 +23,7 @@
     --color-background-secondary: var(--background-secondary);
 
     --color-primary: var(--primary);
+    --color-primary-muted: var(--primary-muted);
     --color-secondary: var(--secondary);
 }
 
@@ -33,6 +34,7 @@
     --background-secondary: hsl(220 13% 91%); /*gray-200 */
 
     --primary: hsl(215 27.9% 16.9%); /* gray-800 */
+    --primary-muted: hsl(220 8.9% 46.1%); /* gray-500 */
     --secondary: hsl(24.6 95% 53.1%); /* orange-500 */
 }
 
@@ -43,6 +45,8 @@
     --background-secondary: hsl(224 71.4% 4.1%) /30;
 
     --primary: hsl(0 0% 98%); /* neutral-50 */
+    --primary-muted: hsl(217.9 10.6% 64.9%); /* gray-400 */
+
     --secondary: hsl(20.5 90.2% 48.2%); /* orange-600 */
 }
 
