@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CategorySeeder::class);
         $categories = Category::all();
 
+        $this->command->info('Seeding members...');
+
         $members = [[
             $this->call(AdminSeeder::class),
             $this->call(AlbertSeeder::class),
@@ -40,6 +42,7 @@ class DatabaseSeeder extends Seeder
             $this->call(RonSeeder::class),
             $this->call(Ruudseeder::class),
         ]];
+        $members = User::all();
 
         $users = User::factory(10)->create();
         foreach ($users as $user) {
@@ -50,16 +53,9 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        // Progress bar for post creation
-        $this->command->info('Seeding posts with comments...');
-        $this->command->withProgressBar(range(1, 200), function () use ($members, $users, $categories) {
-            Post::factory()
-                ->has(Comment::factory(15)->recycle([$members, $users]))
-                ->recycle([$members, $categories])
-                ->create();
-        });
-
-        $this->command->info('Seeding completed!');
-
+        $posts = Post::factory(20)->recycle([$members])
+            ->has(Comment::factory(15)->recycle([$members, $users]))
+            ->recycle([$members, $categories])
+            ->create();
     }
 }
