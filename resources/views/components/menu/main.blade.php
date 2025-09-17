@@ -14,7 +14,7 @@
     Foto's
 </x-link.mainnavigation>
 
-<x-link.mainnavigation href="#" icon="newspaper">
+<x-link.mainnavigation href="{{ route('posts.index') }}" :active="request()->routeIs('posts.*')" icon="newspaper">
     Blog
 </x-link.mainnavigation>
 

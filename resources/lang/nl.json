@@ -7,5 +7,9 @@
   "Description": "Beschrijving",
   "Optional description...": "Optionele beschrijving...",
   "New Category": "Nieuwe categorie",
-  "Save": "Opslaan"
+  "Save": "Opslaan",
+  "No blog posts found": "Geen blogposts gevonden.",
+  "More": "Meer",
+  "by": "door",
+  "published on": "gepubliceerd op"
 }
