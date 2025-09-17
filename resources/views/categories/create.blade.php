@@ -1,7 +1,5 @@
 <x-app-layout title="Categories">
-    <x-slot name="header">
-        <x-heading.main>{{ __('Create Category') }}</x-heading.main>
-    </x-slot>
+    <x-heading.main>{{ __('Create Category') }}</x-heading.main>
     <div class="mb-6">
         <livewire:categories.category-create/>
     </div>

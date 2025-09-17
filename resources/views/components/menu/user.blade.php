@@ -1,4 +1,4 @@
-{{--@can('create:post')--}}
+{{--@can('create:posts')--}}
 {{--    <x-dropdown-link--}}
 {{--            href="{{ route('posts.create') }}">--}}
 {{--        {{ __('New Post') }}--}}

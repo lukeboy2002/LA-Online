@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Comment;
+use App\Models\Post;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -47,6 +49,17 @@ class DatabaseSeeder extends Seeder
                 'user_id' => $user->id,
             ]);
         }
+
+        // Progress bar for post creation
+        $this->command->info('Seeding posts with comments...');
+        $this->command->withProgressBar(range(1, 200), function () use ($members, $users, $categories) {
+            Post::factory()
+                ->has(Comment::factory(15)->recycle([$members, $users]))
+                ->recycle([$members, $categories])
+                ->create();
+        });
+
+        $this->command->info('Seeding completed!');
 
     }
 }

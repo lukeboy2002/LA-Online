@@ -13,8 +13,7 @@ class CategoryList extends Component
 
     public function render()
     {
-        //        $categories = Category::withCount('posts')->get();
-        $categories = Category::all();
+        $categories = Category::withCount('posts')->get();
 
         return view('livewire.categories.category-list', [
             'categories' => $categories,

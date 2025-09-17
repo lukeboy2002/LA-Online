@@ -92,9 +92,9 @@ return [
      * For the default method of adding incremental integers, we start
      * counting at 2, so the list of slugs would be, e.g.:
      *
-     *   - my-post
-     *   - my-post-2
-     *   - my-post-3
+     *   - my-posts
+     *   - my-posts-2
+     *   - my-posts-3
      */
     'firstUniqueSuffix' => 2,
 

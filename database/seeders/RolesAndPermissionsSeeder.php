@@ -45,10 +45,10 @@ class RolesAndPermissionsSeeder extends Seeder
         $categoryPermission4 = Permission::create(['name' => 'delete:category']);
 
         // POST MODEL
-        $postPermission1 = Permission::create(['name' => 'create:post']);
-        $postPermission2 = Permission::create(['name' => 'view:post']);
-        $postPermission3 = Permission::create(['name' => 'update:post']);
-        $postPermission4 = Permission::create(['name' => 'delete:post']);
+        $postPermission1 = Permission::create(['name' => 'create:posts']);
+        $postPermission2 = Permission::create(['name' => 'view:posts']);
+        $postPermission3 = Permission::create(['name' => 'update:posts']);
+        $postPermission4 = Permission::create(['name' => 'delete:posts']);
 
         // GAME MODEL
         $gamePermission1 = Permission::create(['name' => 'create:game']);
