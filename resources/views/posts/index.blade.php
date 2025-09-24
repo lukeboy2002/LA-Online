@@ -1,8 +1,8 @@
 <x-app-layout title="Blog">
-    <x-heading.main>Our Blog</x-heading.main>
+    <x-heading.main>{{__('Our Blog')}}</x-heading.main>
     @can('create:posts')
         <div class="flex justify-end space-x-2 mb-4">
-            <x-link.button href="#">Nieuwe Post</x-link.button>
+            <x-link.button href="{{ route('post.create') }}">{{__('New Post')}}</x-link.button>
         </div>
     @endcan
     <div class="mb-6">

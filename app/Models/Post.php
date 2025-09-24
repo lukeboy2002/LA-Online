@@ -20,7 +20,7 @@ class Post extends Model implements HasMedia
     /** @use HasFactory<PostFactory> */
     use HasFactory;
 
-    use interactsWithMedia;
+    use InteractsWithMedia;
     use Sluggable;
 
     /**
@@ -33,7 +33,7 @@ class Post extends Model implements HasMedia
         'category_id',
         'title',
         'slug',
-        'body',
+        'content',
         'image',
         'published_at',
         'updated_at',
@@ -74,14 +74,18 @@ class Post extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('posts');
+        $this->addMediaCollection('tiptap')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/gif', 'image/webp'])
+            ->singleFile(); // Verwijder deze regel als je meerdere afbeeldingen wilt toestaan
     }
 
     public function registerMediaConversions(?Media $media = null): void
     {
-        $this->addMediaConversion('thumbnail')
-            ->width(368)
-            ->height(232);
+        $this->addMediaConversion('thumb')
+            ->width(300)
+            ->height(300)
+            ->sharpen(10)
+            ->nonQueued();
     }
 
     public function sluggable(): array
@@ -111,13 +115,13 @@ class Post extends Model implements HasMedia
     public function scopeSearch($query, string $search = '')
     {
         $query->where('title', 'like', "%{$search}%")
-            ->orWhere('body', 'like', "%{$search}%");
+            ->orWhere('content', 'like', "%{$search}%");
     }
 
     // Voorbeeld accessor: truncated body
     public function getShortBodyAttribute(): string
     {
-        return Str::limit($this->body, 150); // max 150 karakters
+        return Str::limit($this->content, 150); // max 150 karakters
     }
 
     /**
