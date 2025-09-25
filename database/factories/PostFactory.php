@@ -39,8 +39,7 @@ class PostFactory extends Factory
             'category_id' => Category::factory(),
             'title' => str(fake()->sentence)->beforeLast('.')->title(),
             'slug' => fake()->slug(),
-            'content' => Collection::times(4, fn () => fake()->realText(1250))->join(PHP_EOL.PHP_EOL),
-            'image' => fake()->randomElement($this->images),
+            'content' => Collection::times(4, fn () => '<p>'.e(fake()->realText(1250)).'</p>')->join(PHP_EOL.PHP_EOL),            'image' => fake()->randomElement($this->images),
             'featured' => fake()->boolean,
             'published_at' => fake()->dateTimeBetween('-1 Week', '+1 week'),
         ];

@@ -1,8 +1,8 @@
 <div class="w-full max-w-none">
-    <div class="border border-gray-200 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700">
+    <div class="border border-secondary/30 rounded-lg ">
         <!-- Toolbar -->
-        <div class="flex items-center justify-between px-3 py-2 border-b border-gray-200 dark:border-gray-700">
-            <div class="flex flex-wrap items-center divide-gray-200 sm:divide-x sm:rtl:divide-x-reverse dark:divide-gray-600">
+        <div class="flex items-center justify-between px-3 py-2 border-b border-secondary/30">
+            <div class="flex flex-wrap items-center divide-secondary/30 sm:divide-x sm:rtl:divide-x-reverse">
 
                 <!-- Heading Dropdown -->
                 <div class="flex items-center space-x-1 rtl:space-x-reverse sm:pe-4">
@@ -17,85 +17,140 @@
 
                 <!-- Text Formatting -->
                 <div class="flex items-center space-x-1 rtl:space-x-reverse sm:ps-4">
-                    <button type="button" id="bold_{{ $editorId }}"
-                            class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M11.8 10.5c0-2.5-1.4-3.8-4.1-3.8H4v10.6h4.2c2.3 0 3.8-1.2 3.8-3.6 0-1.5-.8-2.6-2.2-2.9v-.1c1.2-.3 2-1.3 2-2.7zM6.7 8.9h1.3c1.1 0 1.8.6 1.8 1.6s-.7 1.6-1.8 1.6H6.7V8.9zm0 5.1v-2.3h1.5c1.2 0 1.9.6 1.9 1.7s-.7 1.7-1.9 1.7H6.7z"/>
-                        </svg>
+                    <button id="bold_{{ $editorId }}" data-tooltip-target="tooltip-bold" type="button"
+                            class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                        <x-lucide-bold class="w-5 h-5" aria-hidden="true"/>
+                        <span class="sr-only">Bold</span>
                     </button>
-                    <button type="button" id="italic_{{ $editorId }}"
-                            class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M8.5 3.5h3v1h-1.4l-2.1 11h1.4v1h-3v-1h1.4l2.1-11H8.5v-1z"/>
-                        </svg>
+                    <div id="tooltip-bold" role="tooltip"
+                         class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                        Toggle bold
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                    <button id="italic_{{ $editorId }}" data-tooltip-target="tooltip-italic" type="button"
+                            class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                        <x-lucide-italic class="w-5 h-5" aria-hidden="true"/>
+                        <span class="sr-only">Italic</span>
                     </button>
-                    <button type="button" id="underline_{{ $editorId }}"
-                            class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M6 2v6.5c0 2.5 1.3 4 3.5 4s3.5-1.5 3.5-4V2h1v6.5c0 3.3-2 5.5-5.5 5.5S3 11.8 3 8.5V2h1zm-3 15h8v1H3v-1z"/>
-                        </svg>
+                    <div id="tooltip-italic" role="tooltip"
+                         class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                        Toggle italic
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                    <button id="underline_{{ $editorId }}" data-tooltip-target="tooltip-underline" type="button"
+                            class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                        <x-lucide-underline class="w-5 h-5" aria-hidden="true"/>
+                        <span class="sr-only">Underline</span>
                     </button>
-                    <button type="button" id="link_{{ $editorId }}"
-                            class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"/>
-                        </svg>
+                    <div id="tooltip-underline" role="tooltip"
+                         class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                        Toggle underline
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+
+                    <button id="link_{{ $editorId }}" data-tooltip-target="tooltip-link" type="button"
+                            class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                        <x-lucide-link class="w-5 h-5" aria-hidden="true"/>
+                        <span class="sr-only">Link</span>
                     </button>
+                    <div id="tooltip-link" role="tooltip"
+                         class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                        Add link
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
                 </div>
 
                 <!-- Alignment -->
                 <div class="flex items-center space-x-1 rtl:space-x-reverse sm:ps-4">
-                    <button type="button" id="align_left_{{ $editorId }}"
-                            class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M11 2H9v16h2V2zM7 8H5v4h2V8zM15 6h-2v8h2V6z"/>
-                        </svg>
+                    <button id="align_left_{{ $editorId }}" type="button" data-tooltip-target="tooltip-left-align"
+                            class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                        <x-lucide-align-left class="w-5 h-5" aria-hidden="true"/>
+                        <span class="sr-only">Align left</span>
                     </button>
-                    <button type="button" id="align_center_{{ $editorId }}"
-                            class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M10 2H8v16h2V2zM6 8H4v4h2V8zM14 6h-2v8h2V6zM16 10h-1v2h1v-2zM5 10H4v2h1v-2z"/>
-                        </svg>
+                    <div id="tooltip-left-align" role="tooltip"
+                         class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                        Align left
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                    <button id="align_center_{{ $editorId }}" type="button" data-tooltip-target="tooltip-center-align"
+                            class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                        <x-lucide-align-center class="w-5 h-5" aria-hidden="true"/>
+                        <span class="sr-only">Align center</span>
                     </button>
-                    <button type="button" id="align_right_{{ $editorId }}"
-                            class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9 2h2v16H9V2zM13 8h2v4h-2V8zM5 6h2v8H5V6z"/>
-                        </svg>
+                    <div id="tooltip-center-align" role="tooltip"
+                         class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                        Align center
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                    <button id="align_right_{{ $editorId }}" type="button" data-tooltip-target="tooltip-right-align"
+                            class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                        <x-lucide-align-right class="w-5 h-5" aria-hidden="true"/>
+                        <span class="sr-only">Align right</span>
                     </button>
+                    <div id="tooltip-right-align" role="tooltip"
+                         class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                        Align right
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
                 </div>
 
-                <!-- Lists -->
+                <!-- Lists & Quote -->
+
                 <div class="flex items-center space-x-1 rtl:space-x-reverse sm:ps-4">
-                    <button type="button" id="unordered_list_{{ $editorId }}"
-                            class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M3 4a1 1 0 100 2 1 1 0 000-2zM6 4h11v2H6V4zM3 9a1 1 0 100 2 1 1 0 000-2zM6 9h11v2H6V9zM3 14a1 1 0 100 2 1 1 0 000-2zM6 14h11v2H6v-2z"/>
-                        </svg>
+
+                    <button id="unordered_list_{{ $editorId }}" type="button" data-tooltip-target="tooltip-list"
+                            class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                        <x-lucide-list class="w-5 h-5" aria-hidden="true"/>
+                        <span class="sr-only">Toggle list</span>
                     </button>
-                    <button type="button" id="ordered_list_{{ $editorId }}"
-                            class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2 3v2h1V3h1V2H2v1zM2 7v2h1V7h1V6H2v1zM2 11v2h1v-2h1v-1H2v1zM6 4h11v2H6V4zM6 9h11v2H6V9zM6 14h11v2H6v-2z"/>
-                        </svg>
+                    <div id="tooltip-list" role="tooltip"
+                         class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                        Toggle list
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                    <button id="ordered_list_{{ $editorId }}" type="button" data-tooltip-target="tooltip-ordered-list"
+                            class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                        <x-lucide-list-ordered class="w-5 h-5" aria-hidden="true"/>
+                        <span class="sr-only">Toggle ordered list</span>
                     </button>
-                    <button type="button" id="quote_{{ $editorId }}"
-                            class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M3 17V7a1 1 0 011-1h12a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1zM4 8v8h12V8H4z"/>
-                        </svg>
+                    <div id="tooltip-ordered-list" role="tooltip"
+                         class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                        Toggle ordered list
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                    <button id="quote_{{ $editorId }}" type="button" data-tooltip-target="tooltip-blockquote-list"
+                            class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                        <x-lucide-message-square-quote class="w-5 h-5" aria-hidden="true"/>
+                        <span class="sr-only">Toggle blockquote</span>
                     </button>
+                    <div id="tooltip-blockquote-list" role="tooltip"
+                         class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                        Toggle blockquote
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
                 </div>
 
                 <!-- Image Upload -->
                 @if($enableImageUpload)
                     <div class="flex items-center space-x-1 rtl:space-x-reverse sm:ps-4">
-                        <button type="button" id="image_{{ $editorId }}"
-                                class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+                        <button id="image_{{ $editorId }}" type="button" data-tooltip-target="tooltip-image"
+                                class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                                 height="24"
+                                 fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M13 10a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H14a1 1 0 0 1-1-1Z"
+                                      clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                      d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12c0 .556-.227 1.06-.593 1.422A.999.999 0 0 1 20.5 20H4a2.002 2.002 0 0 1-2-2V6Zm6.892 12 3.833-5.356-3.99-4.322a1 1 0 0 0-1.549.097L4 12.879V6h16v9.95l-3.257-3.619a1 1 0 0 0-1.557.088L11.2 18H8.892Z"
+                                      clip-rule="evenodd"/>
                             </svg>
+                            <span class="sr-only">Add image</span>
                         </button>
+                        <div id="tooltip-image" role="tooltip"
+                             class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                            Add image
+                            <div class="tooltip-arrow" data-popper-arrow></div>
+                        </div>
                         <input type="file" id="image_upload_{{ $editorId }}" accept="image/*" class="hidden">
                     </div>
                 @endif
@@ -104,9 +159,9 @@
         </div>
 
         <!-- Editor Content -->
-        <div class="px-4 py-2 bg-white rounded-b-lg dark:bg-gray-800">
+        <div class="px-4 py-2 bg-background">
             <div id="editor_{{ $editorId }}"
-                 class="block w-full px-0 text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
+                 class="block w-full px-0 text-sm text-primary bg-background border-0 focus:ring-0  placeholder-primary-muted"
                  style="min-height: 200px; outline: none; cursor: text;">
             </div>
         </div>
@@ -148,6 +203,7 @@
 
         .ProseMirror h1 {
             font-size: 2em;
+            color: #ea580c;
             font-weight: bold;
             margin: 0.67em 0;
         }
@@ -164,16 +220,52 @@
             margin: 0.83em 0;
         }
 
+        /*.ProseMirror blockquote {*/
+        /*    border-left: 4px solid #e5e7eb;*/
+        /*    margin: 1.5em 0;*/
+        /*    padding: 0 1em;*/
+        /*    font-style: italic;*/
+        /*}*/
+
         .ProseMirror blockquote {
-            border-left: 4px solid #e5e7eb;
+            border: none;
             margin: 1.5em 0;
             padding: 0 1em;
             font-style: italic;
+            position: relative;
+            quotes: none; /* Verwijdert standaard quotes */
+        }
+
+        .ProseMirror blockquote::before {
+            content: '“'; /* Beginquote */
+            font-size: 3em; /* Pas grootte van quote aan */
+            color: #ea580c; /* Oranje kleur */
+            position: absolute;
+            left: -0.5em; /* Geeft ruimte aan de linkerzijde */
+            top: 0; /* Plaats aan de bovenkant */
+        }
+
+        .ProseMirror blockquote::after {
+            content: '”'; /* Eindquote */
+            font-size: 3em; /* Pas grootte van quote aan */
+            color: #ea580c; /* Oranje kleur */
+            position: absolute;
+            right: -0.5em; /* Geeft ruimte aan rechterzijde */
+            bottom: 0; /* Plaats aan de onderkant */
         }
 
         .ProseMirror ul, .ProseMirror ol {
             padding-left: 1.5em;
             margin: 1em 0;
+            list-style-position: outside; /* Zorgt ervoor dat bullets/nummers buiten de tekst zijn */
+        }
+
+        .ProseMirror ul li::marker {
+            color: #ea580c; /* Oranje kleur voor bullets */
+        }
+
+        .ProseMirror ol li::marker {
+            color: #ea580c; /* Oranje kleur voor nummers */
         }
 
         .ProseMirror img {
@@ -254,19 +346,19 @@
                         TextAlign.configure({
                             types: ['heading', 'paragraph'],
                         }),
-                        Underline,
+                        // Underline,
                         Image.configure({
                             allowBase64: true,
                             HTMLAttributes: {
                                 class: 'max-w-full h-auto rounded',
                             },
                         }),
-                        Link.configure({
-                            openOnClick: false,
-                            HTMLAttributes: {
-                                class: 'text-blue-600 underline',
-                            },
-                        }),
+                        // Link.configure({
+                        //     openOnClick: false,
+                        //     HTMLAttributes: {
+                        //         class: 'text-secondary underline',
+                        //     },
+                        // }),
                         Placeholder.configure({
                             placeholder: {!! json_encode($placeholder) !!},
                             emptyEditorClass: 'is-editor-empty',
@@ -275,7 +367,7 @@
                     content: {!! json_encode($content ?: '<p></p>') !!},
                     editorProps: {
                         attributes: {
-                            class: 'prose prose-sm focus:outline-none min-h-[200px] p-4 cursor-text',
+                            class: 'prose dark:prose-invert prose-sm focus:outline-none min-h-[200px] p-4 cursor-text',
                             style: 'outline: none !important;'
                         },
                     },
@@ -339,10 +431,10 @@
                             const button = document.getElementById(id);
                             if (button) {
                                 if (buttons[id]) {
-                                    button.classList.add('bg-blue-500', 'text-white');
+                                    button.classList.add('bg-secondary', 'text-white');
                                     button.classList.remove('text-gray-500', 'hover:text-gray-900', 'dark:text-gray-400');
                                 } else {
-                                    button.classList.remove('bg-blue-500', 'text-white');
+                                    button.classList.remove('bg-secondary', 'text-white');
                                     button.classList.add('text-gray-500', 'hover:text-gray-900', 'dark:text-gray-400');
                                 }
                             }
