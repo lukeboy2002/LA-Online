@@ -80,6 +80,77 @@
     }
 }
 
+.prose {
+
+
+    p {
+        @apply text-primary;
+    }
+
+    h1 {
+        @apply text-secondary;
+    }
+
+    strong {
+        @apply font-bold text-primary;
+    }
+
+    ul, ol {
+        padding-left: 1.5em;
+        margin: 1em 0;
+        list-style-position: outside; /* Zorgt ervoor dat bullets/nummers buiten de tekst zijn */
+    }
+
+    ul li::marker {
+        @apply text-secondary;
+    }
+
+    ol li::marker {
+        @apply text-secondary;
+    }
+
+    ul, ol, li {
+
+    }
+
+    blockquote, blockquote::before, blockquote::after {
+        @apply text-secondary;
+    }
+
+    blockquote {
+        border: none;
+        margin: 2rem;
+        padding: 0 1em;
+        font-style: italic;
+        position: relative;
+        quotes: none;
+    }
+
+    a {
+        @apply text-secondary underline;
+    }
+
+    blockquote::before {
+        content: '“'; /* Beginquote */
+        font-size: 3em; /* Pas grootte van quote aan */
+        position: absolute;
+        left: -0.5em; /* Geeft ruimte aan de linkerzijde */
+        top: 0; /* Plaats aan de bovenkant */
+    }
+
+    blockquote::after {
+        content: '”'; /* Eindquote */
+        font-size: 3em; /* Pas grootte van quote aan */
+        position: absolute;
+        right: -0.5em; /* Geeft ruimte aan rechterzijde */
+        bottom: 0; /* Plaats aan de onderkant */
+    }
+
+    pre {
+        @apply bg-body text-primary w-full;
+    }
+}
+
 [x-cloak] {
     display: none;
 }

@@ -19,7 +19,7 @@ class PostController extends Controller
         $this->countRead($post, $request, $cache);
 
         return view('posts.show', [
-            'posts' => $post,
+            'post' => $post,
         ]);
     }
 
