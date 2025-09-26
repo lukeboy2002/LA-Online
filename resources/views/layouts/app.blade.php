@@ -59,7 +59,8 @@
                 <main class="flex w-full flex-col px-3 lg:w-3/4">
                     {{ $slot }}
                 </main>
-                <aside class="flex w-full flex-col px-3 lg:w-1/4 mb-20">
+                {{--                <aside class="flex w-full flex-col px-3 lg:w-1/4 mb-20">--}}
+                <aside class="flex w-full px-3 mb-20">
                     {{ $side }}
                 </aside>
             </div>
